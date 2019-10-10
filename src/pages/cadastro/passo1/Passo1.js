@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NavBar from "../../componentes/NavBar";
 
 export default class Passo1 extends Component {
     constructor(props) {
@@ -9,7 +10,6 @@ export default class Passo1 extends Component {
             cpf: '',
             agree: 'off'
         }
-
     }
 
     handleChange = (event) => {
@@ -30,14 +30,8 @@ export default class Passo1 extends Component {
         console.log(this.state)
         return (
             <div className="mainNoColor geral">
-                <nav>
-                    <div id="logo"></div>
-                    <input type="text" placeholder="O que você está procurando" />
-                    <div id="signin">
-                        <a className="itensHovered" href="">Entrar</a>
-                    </div>
-                </nav>
-
+                <NavBar />
+              
                 <section id="formSection">
 
                     <div className="header">
@@ -47,7 +41,7 @@ export default class Passo1 extends Component {
                     </div>
 
                     <div className="formContainer">
-                        <form action="./step2.html">
+                        <form onSubmit={() => this.props.change(1, this.state)}>
                             <label className="cursorP" htmlFor="name">Nome</label>
                             <input onChange={(e) => this.handleChange(e)} id="name" type="text" placeholder="Roberto Silva" />
                             <label className="cursorP" htmlFor="date">Data de nascimento</label>

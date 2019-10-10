@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Passo1 from './passo1/Passo1';
+import Passo2 from './passo2/Passo2';
+import Parabens from './parabens/Parabens';
 
 export default class Cadastro extends Component {
     constructor(props) {
@@ -26,9 +28,9 @@ export default class Cadastro extends Component {
     handleActualPage = () => {
         switch (this.state.actualPage) {
             case 1:
-                return <h1>Pagina 02</h1>
+                return <Passo2 change={this.handleChangePage}/>
             case 2:
-                return <h1>Pagina 03</h1>
+                return <Parabens name={this.state.info[0].name} />
             default:
                 return <Passo1 change={this.handleChangePage} />
         }
